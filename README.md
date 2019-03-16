@@ -17,9 +17,9 @@ Following `.git` directories has been removed from sub repositories with the fol
 
 After clonig the repo, copy `.emacs` and `.emacs.d/` to `$HOME` folder.
 
-## Quicklisp
+## SLIME via Quicklisp
 
-Also, I'd advise to install SLIME through quicklisp-slime-helper
+I'd advise to install SLIME through quicklisp-slime-helper
 
 You would need to install some Lisp you like (let it be CCL for this purpose, as described above), then, in the same shell do this:
 
