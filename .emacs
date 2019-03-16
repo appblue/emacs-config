@@ -108,3 +108,12 @@
 
 ;; Switch to Fullscreen mode
 (toggle-frame-fullscreen)
+
+;; SLIME setup for CCL
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "/home/kkielak/opt/ccl/lx86cl64")
+(slime-setup '(slime-fancy))
+
+;; Hyperspec
+(global-set-key [(f2)] 'slime-hyperspec-lookup) 
+(setq common-lisp-hyperspec-root (expand-file-name "~/.emacs.d/HyperSpec/"))
