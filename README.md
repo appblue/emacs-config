@@ -41,6 +41,6 @@ now you are back in the regular shell. Launch Emacs, if not open yet. C-f x~/.em
 
     ;; SLIME setup for CCL
     (load (expand-file-name "~/quicklisp/slime-helper.el"))
-    (setq inferior-lisp-program "/home/kkielak/opt/ccl/lx86cl64")
+    (setq inferior-lisp-program "~/opt/ccl/lx86cl64")
     (slime-setup '(slime-fancy))
 
