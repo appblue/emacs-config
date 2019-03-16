@@ -28,7 +28,7 @@ You would need to install some Lisp you like (let it be CCL for this purpose, as
     $ sudo apt-get install wget
     $ cd ~/Downloads
     $ wget http://beta.quicklisp.org/quicklisp.lisp
-    $ sbcl --load ./quicklisp.lisp
+    $ lx86cl64 --load ./quicklisp.lisp
 
 wait until you see Lisp shell prompt,
 
