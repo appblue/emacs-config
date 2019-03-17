@@ -111,9 +111,15 @@
 
 ;; SLIME setup for CCL
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "~/opt/ccl/lx86cl64")
+(setq inferior-lisp-program "ccl")
 (slime-setup '(slime-fancy))
 
 ;; Hyperspec
 (global-set-key [(f2)] 'slime-hyperspec-lookup) 
 (setq common-lisp-hyperspec-root (expand-file-name "~/.emacs.d/HyperSpec/"))
+
+(require 'w3m)
+(setq browse-url-browser-function 'w3m-browse-url)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+ ;; optional keyboard short-cut
+(global-set-key "\C-xm" 'browse-url-at-point)

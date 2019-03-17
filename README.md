@@ -44,3 +44,30 @@ now you are back in the regular shell. Launch Emacs, if not open yet. C-f x~/.em
     (setq inferior-lisp-program "~/opt/ccl/lx86cl64")
     (slime-setup '(slime-fancy))
 
+## HyperSpec in Emacs via w3m
+
+Following commands in the .emacs files will configure HyperSpec lookup for symbol under a cursor, by using w3m browser within Emacs.
+
+    ;; Hyperspec
+    (global-set-key [(f2)] 'slime-hyperspec-lookup) 
+    (setq common-lisp-hyperspec-root (expand-file-name "~/.emacs.d/HyperSpec/"))
+
+    (require 'w3m)
+    (setq browse-url-browser-function 'w3m-browse-url)
+    (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+     ;; optional keyboard short-cut
+    (global-set-key "\C-xm" 'browse-url-at-point)
+
+## Setting up w3m
+
+In order to use w3m from Emacs, you need to install w3m tool from the OS level. In case of Ubuntu/Debian:
+
+    $ sudo apt install w3m
+
+## HyperSpec installation
+
+Current version of the Lisp Hyperspec can be downloaded from LispWorks' website with following command:
+
+   $ curl -O http://ftp.lispworks.com/pub/software_tools/reference/HyperSpec-7-0.tar.gz
+
+ 
