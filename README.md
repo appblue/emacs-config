@@ -1,7 +1,7 @@
 # emacs-config
 My emacs configuration
 
-![](./screen.png =256x)
+<img src="screen.png" alt="screenshot" style="width:256px;"/>
 
 Following `.git` directories has been removed from sub repositories with the following commands:
 
