@@ -70,4 +70,4 @@ Current version of the Lisp Hyperspec can be downloaded from LispWorks' website 
 
    $ curl -O http://ftp.lispworks.com/pub/software_tools/reference/HyperSpec-7-0.tar.gz
 
- 
+After download, files should be extracted to `~/.emacs.d/HyperSpec` folder to match SLIME configuration related to HyperSpec location that we have set up in previous steps. 
