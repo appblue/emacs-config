@@ -1,6 +1,8 @@
 # emacs-config
 My emacs configuration
 
+![](./screen.png =256x)
+
 Following `.git` directories has been removed from sub repositories with the following commands:
 
     $ find . -mindepth 2 -type d -name .git -print0 | xargs -n1 -0 echo
