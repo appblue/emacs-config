@@ -43,7 +43,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-(setq visible-bell 1)
+(setq visible-bell nil)
 (menu-bar-mode -1)
 
 ;; Once this is enabled, you can make the text in a region
@@ -61,8 +61,8 @@
 (load-theme 'idea-darkula t)
 
 ;; Tao Themes
-(push (substitute-in-file-name "~/.emacs.d/themes/tao-theme-emacs/") custom-theme-load-path)
-(add-to-list 'load-path "~/.emacs.d/themes/tao-theme-emacs/")
+;;(push (substitute-in-file-name "~/.emacs.d/themes/tao-theme-emacs/") custom-theme-load-path)
+;;(add-to-list 'load-path "~/.emacs.d/themes/tao-theme-emacs/")
 ;; (load-theme 'tao-yin t)
 
 ;; Jedi support - TODO!!
@@ -123,3 +123,6 @@
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
  ;; optional keyboard short-cut
 (global-set-key "\C-xm" 'browse-url-at-point)
+
+;; Clojure setup
+(load "~/.emacs.d/init.el")

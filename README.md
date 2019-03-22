@@ -75,3 +75,7 @@ Current version of the Lisp Hyperspec can be downloaded from LispWorks' website 
 After download, files should be extracted to `~/.emacs.d/HyperSpec` folder to match SLIME configuration related to HyperSpec location that we have set up in previous steps. 
 
 > Note: please check following legal stuff before downloading HyperSpec from LispWorks: [http://www.lispworks.com/documentation/HyperSpec/Front/Help.htm#Legal]
+
+## Clojure support
+
+I have incorporated and adapted Emacs customizations for Clojure + Cider REPL integration from the repository that in mentioned in the really great book "Clojure for the Brave and True" : [https://github.com/flyingmachine/emacs-for-clojure/]
