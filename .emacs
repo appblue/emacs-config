@@ -73,15 +73,13 @@
 
 ;; MELPA
 (require 'package)
-;; (add-to-list 'package-archives
-;;             '("melpa" . "https://melpa.org/packages/"))
-;; Following configuration is for STABLE packages only
-;;(add-to-list 'package-archives
-;;             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-;; packages
+;; package archives
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/"))
+
+(add-to-list 'package-archives
+	     '("gnu" . "http://elpa.gnu.org/packages/"))
 
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
@@ -117,6 +115,9 @@
 ;; Hyperspec
 (global-set-key [(f2)] 'slime-hyperspec-lookup) 
 (setq common-lisp-hyperspec-root (expand-file-name "~/.emacs.d/HyperSpec/"))
+
+;; on MacOSX extend the exec-path to include binaries installed via MacPorts
+;; (add-to-list 'exec-path "/opt/local/bin")
 
 (require 'w3m)
 (setq browse-url-browser-function 'w3m-browse-url)
