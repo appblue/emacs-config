@@ -111,7 +111,7 @@
 
 ;; SLIME setup for CCL
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "ccl")
+(setq inferior-lisp-program "sbcl --noinform --no-linedit")
 (slime-setup '(slime-fancy))
 
 ;; Hyperspec
