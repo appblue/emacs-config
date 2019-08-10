@@ -51,6 +51,24 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
+;; MELPA
+(require 'package)
+
+;; package archives
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/"))
+
+(add-to-list 'package-archives
+	     '("gnu" . "http://elpa.gnu.org/packages/"))
+
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
+
+;; Clojure setup
+(load "~/.emacs.d/init.el")
+
 ;; powerline support
 (add-to-list 'load-path "~/.emacs.d/powerline/")
 (require 'powerline)
@@ -70,21 +88,6 @@
 ;; (setq jedi:server-command '("~/.emacs.d/emacs-jedi/PATH/TO/jediepcserver.py"))
 ;; (autoload 'jedi:setup "jedi" nil t)
 ;; (add-hook 'python-mode-hook 'jedi:setup)
-
-;; MELPA
-(require 'package)
-
-;; package archives
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/"))
-
-(add-to-list 'package-archives
-	     '("gnu" . "http://elpa.gnu.org/packages/"))
-
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
 
 ;; Multiple cursors
 (add-to-list 'load-path "~/.emacs.d/multiple-cursors.el/")
@@ -124,6 +127,3 @@
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
  ;; optional keyboard short-cut
 (global-set-key "\C-xm" 'browse-url-at-point)
-
-;; Clojure setup
-(load "~/.emacs.d/init.el")
