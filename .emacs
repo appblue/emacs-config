@@ -111,9 +111,23 @@
 (toggle-frame-fullscreen)
 
 ;; SLIME setup for CCL
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "sbcl --noinform --no-linedit")
-(slime-setup '(slime-fancy))
+;;(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;;(setq inferior-lisp-program "sbcl --noinform --no-linedit")
+;;(slime-setup '(slime-fancy))
+;; SLIME setup for SBCL 
+(defun slime-sbcl ()
+  (interactive)
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  (setq inferior-lisp-program "sbcl --noinform --no-linedit")
+  (slime-setup '(slime-fancy))
+  (slime))
+
+(defun slime-ccl ()
+  (interactive)
+  (load (expand-file-name "~/quicklisp-ccl/slime-helper.el"))
+  (setq inferior-lisp-program "ccl")
+  (slime-setup '(slime-fancy))
+  (slime))
 
 ;; Hyperspec
 (global-set-key [(f2)] 'slime-hyperspec-lookup) 
