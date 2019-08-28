@@ -141,3 +141,8 @@
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
  ;; optional keyboard short-cut
 (global-set-key "\C-xm" 'browse-url-at-point)
+
+;; Use the opam installed utop
+(setq utop-command "opam config exec -- utop -emacs")
+(autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
+(add-hook 'tuareg-mode-hook 'utop-minor-mode)
