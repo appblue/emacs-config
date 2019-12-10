@@ -146,3 +146,7 @@
 (setq utop-command "opam config exec -- utop -emacs")
 (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
 (add-hook 'tuareg-mode-hook 'utop-minor-mode)
+
+;; Haskell mode with stack util for REPL
+(custom-set-variables '(haskell-process-type 'stack-ghci))
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
