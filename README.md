@@ -19,22 +19,41 @@ Following `.git` directories has been removed from sub repositories with the fol
 
 After clonig the repo, copy `.emacs` and `.emacs.d/` to `$HOME` folder.
 
+### Install required tools
+
+In order to use w3m from Emacs, you need to install w3m tool from the OS level
+
+    $ sudo pacman -S w3m    # ... for Manjaro/ArchLinux
+
 ## SLIME via Quicklisp
 
-I'd advise to install SLIME through quicklisp-slime-helper
+Install SLIME through quicklisp-slime-helper
 
 You would need to install some Lisp you like (let it be CCL for this purpose, as described above), then, in the same shell do this:
 
 (Suppose you are on a Debian-like Linux)
 
-    $ sudo apt-get install wget
     $ cd ~/Downloads
     $ wget http://beta.quicklisp.org/quicklisp.lisp
-    $ lx86cl64 --load ./quicklisp.lisp
+
+### Installation for SBCL
+
+    $ sbcl --load ./quicklisp.lisp
 
 wait until you see Lisp shell prompt,
 
     * (quicklisp-quickstart:install)
+    * (ql:add-to-init-file)
+    * (ql:quickload "quicklisp-slime-helper")
+    * (quit)
+
+### Instalation for CCL
+
+    $ lx86cl64 --load ./quicklisp.lisp
+
+wait until you see Lisp shell prompt,
+
+    * (quicklisp-quickstart:install :path "quicklisp-ccl")
     * (ql:add-to-init-file)
     * (ql:quickload "quicklisp-slime-helper")
     * (quit)
@@ -62,7 +81,6 @@ Following commands in the .emacs files will configure HyperSpec lookup for symbo
 
 ## Setting up w3m
 
-In order to use w3m from Emacs, you need to install w3m tool from the OS level. In case of Ubuntu/Debian:
 
     $ sudo apt install w3m
 
