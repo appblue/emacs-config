@@ -58,12 +58,25 @@ wait until you see Lisp shell prompt,
     * (ql:quickload "quicklisp-slime-helper")
     * (quit)
 
-now you are back in the regular shell. Launch Emacs, if not open yet. C-f x~/.emacs. Add the lines below to it (instead of what you posted above):
+now you are back in the regular shell. Launch Emacs, if not open yet. Following functions are defined in `.emacs`:
 
     ;; SLIME setup for CCL
-    (load (expand-file-name "~/quicklisp/slime-helper.el"))
-    (setq inferior-lisp-program "~/opt/ccl/lx86cl64")
-    (slime-setup '(slime-fancy))
+    (defun slime-sbcl ()
+      (interactive)
+      (load (expand-file-name "~/quicklisp/slime-helper.el"))
+      (setq inferior-lisp-program "sbcl --noinform --no-linedit")
+      (slime-setup '(slime-fancy))
+      (slime))
+    
+    ;; SLIME setup for SBCL 
+    (defun slime-ccl ()
+      (interactive)
+      (load (expand-file-name "~/quicklisp-ccl/slime-helper.el"))
+      (setq inferior-lisp-program "~/opt/ccl/lx86cl64")
+      (slime-setup '(slime-fancy))
+      (slime))
+
+With those you can run SLIME for your Lips with `M-x slime-sblc` or `M-x slime-ccl`
 
 ## HyperSpec in Emacs via w3m
 
@@ -78,11 +91,6 @@ Following commands in the .emacs files will configure HyperSpec lookup for symbo
     (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
      ;; optional keyboard short-cut
     (global-set-key "\C-xm" 'browse-url-at-point)
-
-## Setting up w3m
-
-
-    $ sudo apt install w3m
 
 ## HyperSpec installation
 
