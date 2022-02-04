@@ -18,9 +18,18 @@
   '(
     ;; makes handling lisp expressions much, much easier
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
+    use-package
+    helm
     paredit
-
+    mic-paren
+    jetbrains-darcula-theme
+    magit
+    company
+    sly
     ))
+
+;; highlight current line
+(global-hl-line-mode t)
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -69,9 +78,10 @@
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
   :config
-  (setq company-idle-delay 0.3)
+  (setq company-idle-delay nil)
   (global-company-mode t))
-(global-company-mode t)
+(global-set-key (kbd "<backtab>") 'company-complete)
+
 
 (use-package magit
   :ensure t
