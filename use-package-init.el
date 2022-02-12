@@ -116,3 +116,26 @@
 
 ; set fonts
 (set-frame-font "Cascadia Code PL 11" nil t)
+
+;; Ocaml setup
+;; (setq utop-command "opam config exec -- dune utop . -- -emacs")
+(setq utop-command "opam config exec -- utop -emacs")
+
+(autoload 'utop-minor-mod "utop" "Minor mode for utop" t)
+(add-hook 'tuareg-mode-hook 'utop-minor-mode)
+
+;; Merlin setup
+(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
+  (when (and opam-share (file-directory-p opam-share))
+    ;; Register Merlin
+    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+    (autoload 'merlin-mode "merlin" nil t nil)
+    ;; Automatically start it in OCaml buffers
+    (add-hook 'tuareg-mode-hook 'merlin-mode t)
+    (add-hook 'caml-mode-hook 'merlin-mode t)
+    ;; Use opam switch to lookup ocamlmerlin binary
+    (setq merlin-command 'opam)))
+
+;; Make company aware of merlin
+(with-eval-after-load 'company
+ (add-to-list 'company-backends 'merlin-company-backend))
