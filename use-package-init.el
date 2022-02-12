@@ -16,20 +16,19 @@
 ;; Add in your own as you wish:
 (defvar my-packages
   '(
-    ;; makes handling lisp expressions much, much easier
-    ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     use-package
     helm
-    paredit
+    company
+    magit
     mic-paren
     jetbrains-darcula-theme
-    magit
-    company
     sly
-    ))
 
-;; highlight current line
-(global-hl-line-mode t)
+    ;; makes handling lisp expressions much, much easier
+    ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
+    paredit
+
+    ))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -45,7 +44,6 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
-
 
 ;; Do not show the startup screen.
 (setq inhibit-startup-message t)
@@ -75,13 +73,14 @@
 
 (use-package company
   :bind (:map company-active-map
-         ("C-n" . company-select-next)
-         ("C-p" . company-select-previous))
+         ("C-n"       . company-select-next)
+         ("C-p"       . company-select-previous)
+	 ([tab]       . company-complete-selection))
   :config
   (setq company-idle-delay nil)
   (global-company-mode t))
-(global-set-key (kbd "<backtab>") 'company-complete)
 
+(global-set-key (kbd "<backtab>") 'company-complete)
 
 (use-package magit
   :ensure t
@@ -113,8 +112,7 @@
 
 (use-package sly
   :init
-  (setq inferior-lisp-program "/usr/bin/sbcl")
-  )
+  (setq inferior-lisp-program "/usr/bin/sbcl"))
 
 ; set fonts
 (set-frame-font "Cascadia Code PL 11" nil t)
