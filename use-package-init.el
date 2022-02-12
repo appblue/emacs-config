@@ -114,6 +114,11 @@
   :init
   (setq inferior-lisp-program "/usr/bin/sbcl"))
 
+;; SLIME option
+;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+;; (setq inferior-lisp-program "/usr/bin/sbcl")
+
 ; set fonts
 (set-frame-font "Cascadia Code PL 11" nil t)
 
