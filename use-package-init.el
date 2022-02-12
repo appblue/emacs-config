@@ -23,10 +23,15 @@
     mic-paren
     jetbrains-darcula-theme
     sly
+;;    slime
 
     ;; makes handling lisp expressions much, much easier
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     paredit
+
+    merlin
+    tuareg
+    utop
 
     ))
 
