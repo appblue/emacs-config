@@ -22,6 +22,8 @@
     magit
     mic-paren
     jetbrains-darcula-theme
+    gruber-darker-theme
+    
     sly
 ;;    slime
 
@@ -91,9 +93,28 @@
   :ensure t
   :bind ("C-x g" . magit-status))
 
+;; load both color themes
+;; -----------------------------------------
+(use-package gruber-darker-theme
+  :config
+  (load-theme 'gruber-darker t))
+
 (use-package jetbrains-darcula-theme
   :config
   (load-theme 'jetbrains-darcula t))
+
+(defvar current-theme 'jetbrains-darcula)
+(defun switch-themes ()
+  (interactive)
+  (if (eq current-theme 'jetbrains-darcula)
+      (progn
+	(setq current-theme 'gruber-darker)
+	(load-theme 'gruber-darker t))
+    (setq current-theme 'jetbrains-darcula)
+    (load-theme 'jetbrains-darcula t)))
+
+(global-set-key (kbd "<f9>") 'switch-themes)
+;; -----------------------------------------
 
 ;; Better handling of paranthesis when writing Lisps.
 (use-package paredit
