@@ -88,6 +88,7 @@
   (global-company-mode t))
 
 (global-set-key (kbd "<backtab>") 'company-complete)
+(global-set-key (kbd "<C-return>") 'other-window)
 
 (use-package magit
   :ensure t
@@ -146,7 +147,8 @@
 ;; (setq inferior-lisp-program "/usr/bin/sbcl")
 
 ; set fonts
-(set-frame-font "Cascadia Code PL 11" nil t)
+(when (file-exists-p "/usr/share/fonts/truetype/cascadia")
+  (set-frame-font "Cascadia Code PL 11" nil t))
 
 ;; Ocaml setup
 ;; (setq utop-command "opam config exec -- dune utop . -- -emacs")
