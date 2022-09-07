@@ -63,6 +63,8 @@
 ;; Highlight current line.
 (global-hl-line-mode t)
 
+(setq make-backup-files nil) ; stop creating ~ files
+
 ;; Do not use `init.el` for `custom-*` code - use `custom-file.el`.
 (setq custom-file "~/.emacs.d/custom-file.el")
 
