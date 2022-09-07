@@ -35,6 +35,9 @@
     tuareg
     utop
 
+    ;; Standard ML
+    sml-mode
+
     ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -153,8 +156,8 @@
   (set-frame-font "Cascadia Code PL 11" nil t))
 
 ;; Ocaml setup
-;; (setq utop-command "opam config exec -- dune utop . -- -emacs")
-(setq utop-command "opam config exec -- utop -emacs")
+;; (setq utop-command "opam config exec -- utop -emacs")
+(setq utop-command "opam config exec -- dune utop . -- -emacs")
 
 (autoload 'utop-minor-mod "utop" "Minor mode for utop" t)
 (add-hook 'tuareg-mode-hook 'utop-minor-mode)
