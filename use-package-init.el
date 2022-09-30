@@ -38,6 +38,8 @@
     ;; Standard ML
     sml-mode
 
+    ;; Support for SQLFormatter
+    sqlformat
     ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -145,6 +147,12 @@
 (use-package sly
   :init
   (setq inferior-lisp-program "/usr/bin/sbcl"))
+
+(use-package sqlformat
+  :init
+  ;; pg_format tool needs to in the path
+  (setq sqlformat-command 'pgformatter)
+  (setq sqlformat-args '("-s2" "-g")))
 
 ;; SLIME option
 ;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
