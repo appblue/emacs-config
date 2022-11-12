@@ -159,6 +159,9 @@
 ;; Replace "sbcl" with the path to your implementation
 ;; (setq inferior-lisp-program "/usr/bin/sbcl")
 
+; turn off visual and sound bell notifications
+(setq ring-bell-function 'ignore)
+
 ; set fonts
 (when (file-exists-p "/usr/share/fonts/truetype/cascadia")
   (set-frame-font "Cascadia Code PL 11" nil t))
