@@ -218,3 +218,7 @@
 
 (global-set-key (kbd "C-c C-v") 'make-and-reload)
 
+;; remap Home and End keys
+(global-set-key (kbd "<end>") 'end-of-line)
+(global-set-key (kbd "<home>") 'beginning-of-line)
+
