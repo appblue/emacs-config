@@ -171,8 +171,8 @@
 (setq ring-bell-function 'ignore)
 
 ; set fonts
-(when (file-exists-p "/usr/share/fonts/truetype/cascadia")
-  (set-frame-font "Cascadia Code PL 11" nil t))
+(ignore-errors
+    (set-frame-font "Cascadia Code PL 12" nil t))
 
 ;; Ocaml setup
 ;; (setq utop-command "opam config exec -- utop -emacs")
@@ -221,4 +221,3 @@
 ;; remap Home and End keys
 (global-set-key (kbd "<end>") 'end-of-line)
 (global-set-key (kbd "<home>") 'beginning-of-line)
-
