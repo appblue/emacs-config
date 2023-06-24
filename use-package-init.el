@@ -43,6 +43,9 @@
 
     ;; Haskell
     haskell-mode
+
+    ;; W3M
+    w3m
     ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -174,6 +177,10 @@
 (when (file-exists-p "/usr/share/fonts/truetype/cascadia")
   (set-frame-font "Cascadia Code PL 11" nil t))
 
+; set fonts
+(when (file-exists-p "/usr/share/fonts/truetype/monofur")
+  (set-frame-font "Monofur Nerd Font Mono 14" nil t))
+
 ;; Ocaml setup
 ;; (setq utop-command "opam config exec -- utop -emacs")
 (setq utop-command "opam config exec -- dune utop . -- -emacs")
@@ -218,3 +225,13 @@
 
 (global-set-key (kbd "C-c C-v") 'make-and-reload)
 
+;; Hyperspec
+;; (global-set-key [(f2)] 'slime-hyperspec-lookup)
+(global-set-key [(f2)] 'sly-hyperspec-lookup) 
+(setq common-lisp-hyperspec-root (expand-file-name "~/.emacs.d/HyperSpec/"))
+
+(require 'w3m)
+(setq browse-url-browser-function 'w3m-browse-url)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+ ;; optional keyboard short-cut
+(global-set-key "\C-xm" 'browse-url-at-point)
